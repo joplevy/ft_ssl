@@ -6,7 +6,7 @@
 #    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2018/10/21 18:57:27 by jplevy           ###   ########.fr        #
+#    Updated: 2018/10/24 15:58:13 by jplevy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,3 +47,5 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+TOTO = toto
