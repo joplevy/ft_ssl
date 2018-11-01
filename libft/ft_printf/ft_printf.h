@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include "../libft.h"
 # include <stdio.h>
+# include <inttypes.h>
 
 typedef struct			s_list1
 {

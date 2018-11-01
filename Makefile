@@ -29,7 +29,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@echo "Creating libft"
 	@$(MAKE) -C $(LIBFT_PATH) > /dev/null
-	@$(CC) -o $(NAME) $(OBJ) -L. $(LIBFT_PATH)$(LIBFT_NAME)
+	@$(CC) -o $(NAME) $(OBJ) -L. $(LIBFT_PATH)$(LIBFT_NAME) -lm
 	@echo "  Well done"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c  $(INCLUDE_FILE)
