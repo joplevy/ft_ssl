@@ -37,6 +37,12 @@ t_md5_vars	ft_init_md5_vars(void)
 	vars.h1 = 0xEFCDAB89;
 	vars.h2 = 0x98BADCFE;
 	vars.h3 = 0x10325476;
+	vars.a = 0;
+	vars.b = 0;
+	vars.c = 0;
+	vars.d = 0;
+	vars.f = 0;
+	vars.g = 0;
 	return (vars);
 }
 
@@ -50,7 +56,7 @@ void	ft_md5(t_args *args)
 {
 	uint32_t	buff[16];
 	uint32_t	tmp;
-	int			i;
+	// int			i;
 	int			j;
 	size_t		len;
 	size_t		total;
@@ -69,16 +75,16 @@ void	ft_md5(t_args *args)
 			{
 				// while (total % 64 != 56)
 				// 	total++;
-				((char *)buff)[len] = 0x80;
-				(buff[14]) = (uint64_t)(total * 8);
+				((uint8_t *)buff)[len] = 0x80;
+				((uint64_t *)(buff))[7] = (uint64_t)(total * 8);
 				// ft_printf("len id %d just read : %d bytes\n", len, total);
 			}
 			// if (len < 16 * sizeof(uint32_t))// && len 12 * sizeof(uint32_t))
 			// 	buff[len]
-			write(1, buff, 16 * sizeof(uint32_t));
-			i = -1;
-			while (++i < 16)
-			{
+			// write(1, buff, 16 * sizeof(uint32_t));
+			// i = -1;
+			// while (++i < 16)
+			// {
 				vars.a = vars.h0;
 				vars.b = vars.h1;
 				vars.c = vars.h2;
@@ -91,7 +97,7 @@ void	ft_md5(t_args *args)
 					{
 						// vars.f = vars.d ^ (vars.b & (vars.c ^ vars.d));
 						vars.f = (vars.b & vars.c) | ((~(vars.b)) & vars.d);
-						vars.g = i;
+						vars.g = j;
 					}
 					else if (j < 32)
 					{
@@ -107,7 +113,7 @@ void	ft_md5(t_args *args)
 					else
 					{
 						vars.f = vars.c ^ (vars.b | ~(vars.d));
-						vars.g = (7 * i) % 16;
+						vars.g = (7 * j) % 16;
 					}
 					// ft_printf("pre a : %u b : %u c : %u d : %u\n", vars.a, vars.b, vars.c, vars.d);
 
@@ -122,11 +128,14 @@ void	ft_md5(t_args *args)
 				vars.h1 += vars.b;
 				vars.h2 += vars.c;
 				vars.h3 += vars.d;
-			}
+			// }
 			// ft_putchar('\n');
 			ft_bzero(buff, 16 * sizeof(uint32_t));
 		}
-		ft_printf("here it is ==> %0.8x %0.8x %0.8x %0.8x\n", vars.h0, vars.h1, vars.h2, vars.h3);
+		ft_printf("%0.2x%0.2x%0.2x%0.2x", vars.h0 & 0xff,  (vars.h0 & 0xff00) >> 8, (vars.h0 & 0xff0000) >> 16, (vars.h0 & 0xff000000) >> 24);
+		ft_printf("%0.2x%0.2x%0.2x%0.2x", vars.h1 & 0xff,  (vars.h1 & 0xff00) >> 8, (vars.h1 & 0xff0000) >> 16, (vars.h1 & 0xff000000) >> 24);
+		ft_printf("%0.2x%0.2x%0.2x%0.2x", vars.h2 & 0xff,  (vars.h2 & 0xff00) >> 8, (vars.h2 & 0xff0000) >> 16, (vars.h2 & 0xff000000) >> 24);
+		ft_printf("%0.2x%0.2x%0.2x%0.2x\n", vars.h3 & 0xff,  (vars.h3 & 0xff00) >> 8, (vars.h3 & 0xff0000) >> 16, (vars.h3 & 0xff000000) >> 24);
 		// ft_printf("should read fd %d\n", args->fd);
 	}
 	else

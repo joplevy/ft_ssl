@@ -66,7 +66,6 @@ typedef struct  s_md5_vars {
     uint32_t    d;
     uint32_t    f;
     uint32_t    g;
-    uint64_t    md5_k[64];
 }               t_md5_vars;
 
 typedef struct  s_flag_funcs {
@@ -100,7 +99,7 @@ static const uint32_t   md5_r[64] = {
     6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21
 };
 
-static const uint32_t md5_k[] = {
+static const uint32_t md5_k[64] = {
 	0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
 	0xf57c0faf, 0x4787c62a, 0xa8304613, 0xfd469501,
 	0x698098d8, 0x8b44f7af, 0xffff5bb1, 0x895cd7be,
