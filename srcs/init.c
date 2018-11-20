@@ -6,17 +6,15 @@
 /*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:12:46 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/19 16:13:39 by jplevy           ###   ########.fr       */
+/*   Updated: 2018/11/19 18:17:33 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_ssl.h>
 
-
 t_md5_vars	ft_init_md5_vars(void)
 {
 	t_md5_vars	vars;
-	
 
 	vars.h0 = 0x67452301;
 	vars.h1 = 0xEFCDAB89;
@@ -31,7 +29,7 @@ t_md5_vars	ft_init_md5_vars(void)
 	return (vars);
 }
 
-t_args	ft_init_args(void)
+t_args		ft_init_args(void)
 {
 	t_args	ret;
 
