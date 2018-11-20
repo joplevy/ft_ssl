@@ -6,12 +6,12 @@
 /*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 15:39:03 by jplevy            #+#    #+#             */
-/*   Updated: 2018/10/24 18:01:39 by jplevy           ###   ########.fr       */
+/*   Updated: 2018/11/19 17:48:16 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MALLOC_H
-# define FT_MALLOC_H
+#ifndef FT_SSL_H
+# define FT_SSL_H
 
 # define USAGE "usage: ft_ssl command [command opts] [command args]\n"
 # define FMT "ft_ssl: Error: '%s' is an invalid command.\nStandard \
@@ -36,6 +36,11 @@ nothing open file | fd
 
 -r      Reverses the format of the output.  This helps with visual diffs.  Does nothing when combined with the -ptx options.
 */
+
+/*
+** TYPES
+*/
+
 typedef enum    e_flags{
     NONE, 
     QUIET,
@@ -73,12 +78,56 @@ typedef struct  s_flag_funcs {
     void        (*func_call)(t_args *, void (*)(t_args *));
 }               t_flag_funcs;
 
+/*
+** FUNCTIONS
+*/
+
+/*
+**  ft_md5_hashs
+*/
+
+uint32_t	leftrotate(uint32_t x, uint32_t c);
+void		md5_hash_0(t_md5_vars *vars, int i);
+void		md5_hash_1(t_md5_vars *vars, int i);
+void		md5_hash_2(t_md5_vars *vars, int i);
+void		md5_hash_3(t_md5_vars *vars, int i);
+
+/*
+**  ft_printing
+*/
+
+// void		ft_print_hash(uint8_t *hash, size_t len);
+void		ft_print_md5(t_md5_vars vars, t_args *args);
+
+/*
+** init
+*/
+
+t_md5_vars	ft_init_md5_vars(void);
+t_args	    ft_init_args(void);
+
+/*
+**  parsing_launching
+*/
+
+void        ft_string(t_args *args, void (*func_call)(t_args *));
+void        ft_stdin(t_args *args, void (*func_call)(t_args *));
+void        ft_set_q(t_args *args, void (*func_call)(t_args *));
+void        ft_set_r(t_args *args, void (*func_call)(t_args *));
+void	    ft_get_flags(char *str, t_args *args, void (*func_call)(t_args *));
+
+/*
+**  ft_md5_core
+*/
+
+void        ft_md5(t_args *args);
+
+
 void    ft_sha256(t_args *args);
-void    ft_md5(t_args *args);
-void    ft_string(t_args *args, void (*func_call)(t_args *));
-void    ft_stdin(t_args *args, void (*func_call)(t_args *));
-void    ft_set_q(t_args *args, void (*func_call)(t_args *));
-void    ft_set_r(t_args *args, void (*func_call)(t_args *));
+
+/*
+** STATICS
+*/
 
 static const t_funcs funcs_calls[NB_HASH] = {
     {"md5", &ft_md5},
@@ -116,5 +165,5 @@ static const uint32_t md5_k[64] = {
 	0x655b59c3, 0x8f0ccc92, 0xffeff47d, 0x85845dd1,
 	0x6fa87e4f, 0xfe2ce6e0, 0xa3014314, 0x4e0811a1,
 	0xf7537e82, 0xbd3af235, 0x2ad7d2bb, 0xeb86d391};
-
+    
 #endif

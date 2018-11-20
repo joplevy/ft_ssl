@@ -6,7 +6,7 @@
 #    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2018/10/24 15:58:13 by jplevy           ###   ########.fr        #
+#    Updated: 2018/11/19 17:53:41 by jplevy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,14 @@ NAME = ft_ssl
 CC = gcc
 CFLAG = -Wall -Werror -Wextra
 SRC_PATH = ./srcs/
-SRC_NAME = ft_ssl.c
+SRC_NAME = ft_ssl.c \
+			printing.c \
+			ft_md5_hashs.c \
+			init.c \
+			parsing_launching.c \
+			ft_md5_core.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ_PATH = ./dst/
-# SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INCLUDE_FILE = ./includes/ft_ssl.h
 LIBFT_PATH = ./libft/
