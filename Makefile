@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2018/11/21 13:22:09 by marvin           ###   ########.fr        #
+#    Updated: 2018/11/21 18:30:33 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,12 @@ SRC_NAME = ft_ssl.c \
 			ft_md5_hashs.c \
 			ft_sha256_hashs.c \
 			init.c \
+			utils.c \
 			parsing_launching.c \
-			ft_md5_core.c
+			ft_md5_core.c \
+			ft_sha256_core.c \
+			ft_ssl_core.c \
+			ft_sha256_sigma_funcs.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ_PATH = ./dst/
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

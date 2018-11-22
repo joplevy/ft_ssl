@@ -6,22 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:12:46 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 16:10:50 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/21 18:30:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_ssl.h>
-
-uint64_t		swap_int64(uint64_t in)
-{
-	uint64_t	out;
-
-	out = (in & 0xff) << 56 | (in & 0xff00) << 40 | (in & 0xff0000) << 24 \
-		| (in & 0xff000000) << 8 | (in & 0xff00000000) >> 8 \
-		| (in & 0xff0000000000) >> 24 | (in & 0xff000000000000) >> 40 \
-		| (in & 0xff00000000000000) >> 56;
-	return(out);
-}
 
 t_vars	ft_init_md5_vars(void)
 {

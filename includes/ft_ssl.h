@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 18:28:54 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 16:25:29 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/21 18:30:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ void			ft_print_sha256(t_vars vars, t_args *args);
 ** init
 */
 
-uint64_t		swap_int64(uint64_t in);
 t_vars			ft_init_md5_vars(void);
 t_vars			ft_init_sha256_vars(void);
 t_args			ft_init_args(void);
@@ -116,30 +115,54 @@ void			ft_get_flags(char *str, t_args *args, void (*func_call)\
 					(t_args *));
 
 /*
-**  ft_md5_core
+**	ft_ssl_core
 */
 
 void			ft_str_hash(t_args *args, t_vars *vars, \
 					void (*func_process)(t_vars *, uint32_t *));
 void			ft_fd_hash(t_args *args, t_vars *vars, \
 					void (*func_process)(t_vars *, uint32_t *));
-void			ft_md5(t_args *args);
-uint32_t		swap_int32(uint32_t in);
 
+/*
+**  ft_md5_core
+*/
+
+void			ft_md5(t_args *args);
+
+/*
+**	ft_sha256_core
+*/
+
+void			ft_sha256(t_args *args);
 
 /*
 **	ft_sha256_hashs
 */
+
 uint32_t		rightrotate(uint32_t x, uint32_t c);
 uint32_t		rightshift(uint32_t x, uint32_t c);
 uint32_t		ft_ch(uint32_t x, uint32_t y, uint32_t z);
 uint32_t		ft_maj(uint32_t x, uint32_t y, uint32_t z);
+
+
+/*
+**	ft_sha256_sigma_funcs
+*/
+
 uint32_t		ft_maj_sig_0(uint32_t x);
 uint32_t		ft_maj_sig_1(uint32_t x);
 uint32_t		ft_min_sig_0(uint32_t x);
 uint32_t		ft_min_sig_1(uint32_t x);
 
-void			ft_sha256(t_args *args);
+/*
+**	utils
+*/
+
+void			ft_loop_init_vars(t_vars *vars);
+void			ft_loop_complete_vars(t_vars *vars);
+uint32_t		swap_int32(uint32_t in);
+uint64_t		swap_int64(uint64_t in);
+
 
 /*
 ** STATICS
