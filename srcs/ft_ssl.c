@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 16:14:23 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 18:57:04 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/21 19:01:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_parse_args(int ac, char **av, t_args *args, int i)
 {
-	// if (ac == 1)
-	// 	ft_stdin(args, (funcs_calls[i]).func_call);
 	while (--ac > 0 && ++av)
 	{
 		args->next = (ac > 0) ? *(av + 1) : NULL;

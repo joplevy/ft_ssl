@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 18:28:54 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 18:57:30 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/21 19:06:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,6 @@ typedef struct	s_flag_funcs {
 */
 
 /*
-**  ft_md5_hashs
-*/
-
-uint32_t		leftrotate(uint32_t x, uint32_t c);
-void			md5_hash_0(t_vars *vars, int i);
-void			md5_hash_1(t_vars *vars, int i);
-void			md5_hash_2(t_vars *vars, int i);
-void			md5_hash_3(t_vars *vars, int i);
-
-/*
 **  ft_printing
 */
 
@@ -125,10 +115,29 @@ void			ft_fd_hash(t_args *args, t_vars *vars, \
 					void (*func_process)(t_vars *, uint32_t *));
 
 /*
+**	utils
+*/
+
+void			ft_loop_init_vars(t_vars *vars);
+void			ft_loop_complete_vars(t_vars *vars);
+uint32_t		swap_int32(uint32_t in);
+uint64_t		swap_int64(uint64_t in);
+
+/*
 **  ft_md5_core
 */
 
 void			ft_md5(t_args *args);
+
+/*
+**  ft_md5_hashs
+*/
+
+uint32_t		leftrotate(uint32_t x, uint32_t c);
+void			md5_hash_0(t_vars *vars, int i);
+void			md5_hash_1(t_vars *vars, int i);
+void			md5_hash_2(t_vars *vars, int i);
+void			md5_hash_3(t_vars *vars, int i);
 
 /*
 **	ft_sha256_core
@@ -154,16 +163,6 @@ uint32_t		ft_maj_sig_0(uint32_t x);
 uint32_t		ft_maj_sig_1(uint32_t x);
 uint32_t		ft_min_sig_0(uint32_t x);
 uint32_t		ft_min_sig_1(uint32_t x);
-
-/*
-**	utils
-*/
-
-void			ft_loop_init_vars(t_vars *vars);
-void			ft_loop_complete_vars(t_vars *vars);
-uint32_t		swap_int32(uint32_t in);
-uint64_t		swap_int64(uint64_t in);
-
 
 /*
 ** STATICS
