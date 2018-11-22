@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/10 13:21:18 by jplevy            #+#    #+#              #
-#    Updated: 2018/11/19 17:53:41 by jplevy           ###   ########.fr        #
+#    Updated: 2018/11/21 13:22:09 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC_PATH = ./srcs/
 SRC_NAME = ft_ssl.c \
 			printing.c \
 			ft_md5_hashs.c \
+			ft_sha256_hashs.c \
 			init.c \
 			parsing_launching.c \
 			ft_md5_core.c
