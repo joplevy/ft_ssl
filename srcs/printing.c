@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:02:18 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 17:49:06 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/21 18:55:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	ft_print_all(t_args *args, uint8_t *hash, size_t len)
 			ft_printf(" *\"%s\"", args->str);
 	}
 	ft_putchar('\n');
+	args->used = 1;
 }
 
 void		ft_print_md5(t_vars vars, t_args *args)

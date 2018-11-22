@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 18:28:54 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 18:30:45 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/21 18:57:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_args {
 	char		last_f;
 	char		*str;
 	char		*next;
+	uint8_t		used;
 }				t_args;
 
 typedef struct	s_funcs {
