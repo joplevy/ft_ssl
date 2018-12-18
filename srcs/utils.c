@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 18:10:24 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/21 18:10:24 by marvin           ###   ########.fr       */
+/*   Updated: 2018/12/17 17:17:38 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_ssl.h>
 
-uint64_t		swap_int64(uint64_t in)
+uint64_t	swap_int64(uint64_t in)
 {
 	uint64_t	out;
 
@@ -20,19 +20,19 @@ uint64_t		swap_int64(uint64_t in)
 		| (in & 0xff000000) << 8 | (in & 0xff00000000) >> 8 \
 		| (in & 0xff0000000000) >> 24 | (in & 0xff000000000000) >> 40 \
 		| (in & 0xff00000000000000) >> 56;
-	return(out);
+	return (out);
 }
 
-uint32_t		swap_int32(uint32_t in)
+uint32_t	swap_int32(uint32_t in)
 {
 	uint32_t	out;
 
 	out = (in & 0xff) << 24 | (in & 0xff00) << 8 | (in & 0xff0000) >> 8 \
 		| (in & 0xff000000) >> 24;
-	return(out);
+	return (out);
 }
 
-void			ft_loop_init_vars(t_vars *vars)
+void		ft_loop_init_vars(t_vars *vars)
 {
 	vars->a = vars->h0;
 	vars->b = vars->h1;
@@ -44,7 +44,7 @@ void			ft_loop_init_vars(t_vars *vars)
 	vars->h = vars->h7;
 }
 
-void			ft_loop_complete_vars(t_vars *vars)
+void		ft_loop_complete_vars(t_vars *vars)
 {
 	vars->h0 += vars->a;
 	vars->h1 += vars->b;
@@ -54,4 +54,18 @@ void			ft_loop_complete_vars(t_vars *vars)
 	vars->h5 += vars->f;
 	vars->h6 += vars->g;
 	vars->h7 += vars->h;
+}
+
+int			ft_strcmp_no_case(const char *s1, const char *s2)
+{
+	if (!s1 || !s2)
+		return (-1);
+	while (*s1 || *s2)
+	{
+		if (ft_tolower(*s1) != ft_tolower(*s2))
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
+	}
+	return (0);
 }

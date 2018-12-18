@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:02:18 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 18:55:57 by marvin           ###   ########.fr       */
+/*   Updated: 2018/12/17 17:16:22 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static void	ft_print_hash(uint8_t *hash, size_t len)
 	}
 }
 
-static void	ft_print_all(t_args *args, uint8_t *hash, size_t len)
+static void	ft_print_all(t_args *args, uint8_t *hash, size_t len, char *h_name)
 {
 	if (args->flag == NONE)
-		ft_printf("MD5 (%c%s%c) = ", args->fd >= 0 ? 0 : '\"', args->str, \
-			args->fd >= 0 ? 0 : '\"');
+		ft_printf("%s (%c%s%c) = ", h_name, args->fd >= 0 ? 0 : '\"',
+		args->str, args->fd >= 0 ? 0 : '\"');
 	ft_print_hash(hash, len);
 	if ((args->flag & REVERSE) && !(args->flag & QUIET))
 	{
@@ -56,7 +56,7 @@ void		ft_print_md5(t_vars vars, t_args *args)
 	i = -1;
 	while (++i < 16)
 		res[i] = (v[i / 4] >> ((i % 4) * 8)) & 0xFF;
-	ft_print_all(args, res, 16);
+	ft_print_all(args, res, 16, "MD5");
 }
 
 void		ft_print_sha256(t_vars vars, t_args *args)
@@ -71,6 +71,5 @@ void		ft_print_sha256(t_vars vars, t_args *args)
 	((uint32_t *)res)[5] = swap_int32(vars.h5);
 	((uint32_t *)res)[6] = swap_int32(vars.h6);
 	((uint32_t *)res)[7] = swap_int32(vars.h7);
-	ft_print_all(args, res, 32);
+	ft_print_all(args, res, 32, "SHA256");
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:12:46 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/21 18:57:51 by marvin           ###   ########.fr       */
+/*   Updated: 2018/12/17 17:16:39 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_vars	ft_init_sha256_vars(void)
 	return (vars);
 }
 
-t_args		ft_init_args(void)
+t_args	ft_init_args(void)
 {
 	t_args	ret;
 

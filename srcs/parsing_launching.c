@@ -6,7 +6,7 @@
 /*   By: jplevy <jplevy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:14:26 by jplevy            #+#    #+#             */
-/*   Updated: 2018/11/19 18:21:36 by jplevy           ###   ########.fr       */
+/*   Updated: 2018/12/17 14:51:12 by jplevy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void	ft_get_flags(char *str, t_args *args, void (*func_call)(t_args *))
 		found = 0;
 		while (++i < NB_FLAG)
 		{
-			if (*str == (flag_calls[i]).ref[0])
+			if (*str == (g_flag_calls[i]).ref[0])
 			{
 				args->last_f = *str;
 				found = 1;
-				(flag_calls[i]).func_call(args, func_call);
+				(g_flag_calls[i]).func_call(args, func_call);
 				if (*str == 's')
 					return ;
 			}
